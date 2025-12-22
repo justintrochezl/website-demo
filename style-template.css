@@ -4,23 +4,6 @@ body, html {
     overflow-x: hidden;
 }
 
-header, section, h1, p {
-    margin-top: 0;
-}
-footer, section:last-child {
-    margin-bottom: 0;
-}
-html, body {
-    height: 100%;
-}
-body {
-    display: flex;
-    flex-direction: column;
-}
-main {
-    flex: 1; /* pushes footer to bottom, no extra white space */
-}
-
 
 /* Hero Section */
 .hero {
@@ -806,5 +789,6 @@ html {
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
+
 
 
