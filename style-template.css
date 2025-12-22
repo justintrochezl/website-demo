@@ -3,6 +3,10 @@ body, html {
     padding: 0;
     overflow-x: hidden;
 }
+footer {
+    margin: 0;     /* remove extra margin */
+    padding: 0;    /* remove extra padding */
+}
 
 /* Hero Section */
 .hero {
@@ -788,4 +792,5 @@ html {
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
+
 
