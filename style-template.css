@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color: #000; /* black */
 }
 footer {
     margin: 0;     /* remove extra margin */
@@ -792,5 +793,6 @@ html {
 .faq-item.active .faq-icon {
   transform: rotate(45deg);
 }
+
 
 
