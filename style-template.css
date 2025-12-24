@@ -4,10 +4,6 @@ body, html {
     overflow-x: hidden;
     background-color: #000; /* black */
 }
-footer {
-    margin: 0;     /* remove extra margin */
-    padding: 0;    /* remove extra padding */
-}
 
 /* Hero Section */
 .hero {
@@ -794,5 +790,32 @@ html {
   transform: rotate(45deg);
 }
 
+.upload-label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.upload-label input {
+  display: block;
+  margin-top: 6px;
+}
 
 
+.glass-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.glass-title {
+  grid-column: span 2;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .glass-selection {
+    grid-template-columns: 1fr;
+  }
+}
