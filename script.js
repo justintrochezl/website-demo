@@ -10,36 +10,45 @@ window.addEventListener('scroll', function() {
 
 
 (function () {
-  emailjs.init("pElaEW3hgu0TizosF"); // Replace with your EmailJS Public Key
+  emailjs.init("pElaEW3hgu0TizosF"); // from EmailJS dashboard
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const submitBtn = form.querySelector("button");
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Sending...";
+  // Collect checked glass options
+  const glassChecked = [...document.querySelectorAll('input[name="glass[]"]:checked')]
+    .map(item => item.value)
+    .join(", ");
 
-    emailjs.sendForm(
-      "service_gxtba305",   // Replace with your EmailJS Service ID
-      "template_2gr3i5u",  // Replace with your EmailJS Template ID
-      form
-    )
-    .then(() => {
-      submitBtn.innerText = "Sent!";
-      setTimeout(() => {
-        window.location.href = "submitted.html"; // Redirect after success
-      }, 800);
-    })
-    .catch((error) => {
-      console.error("EmailJS error:", error);
-      submitBtn.innerText = "Try Again";
-      submitBtn.disabled = false;
-    });
+  // Build template params
+  const templateParams = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    city: this.city.value,
+    year: this.year.value,
+    make: this.make.value,
+    model: this.model.value,
+    glass: glassChecked || "Not specified",
+    message: this.message.value,
+  };
+
+  emailjs.send(
+    "service_gxtba305",
+    "template_2gr3i5u",
+    templateParams
+  )
+  .then(() => {
+    alert("Message sent successfully!");
+    this.reset();
+  })
+  .catch((error) => {
+    alert("Failed to send message.");
+    console.error(error);
   });
 });
+
 
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
