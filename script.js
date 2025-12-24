@@ -17,9 +17,11 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
   // Collect checked glass options
-  const glassChecked = [...document.querySelectorAll('input[name="glass[]"]:checked')]
-    .map(item => item.value)
-    .join(", ");
+ const glassChecked = [...document.querySelectorAll('input[name="glass"]:checked')]
+  .map(cb => cb.value);
+
+// Then send:
+
 
   // Build template params
   const templateParams = {
@@ -34,20 +36,18 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     message: this.message.value,
   };
 
-  emailjs.send(
-    "service_gxtba305",
-    "template_2gr3i5u",
-    templateParams
-  )
-  .then(() => {
-    alert("Message sent successfully!");
-    this.reset();
-  })
-  .catch((error) => {
-    alert("Failed to send message.");
-    console.error(error);
-  });
+  // Send email and redirect on success
+  emailjs.send("service_gxtba305", "template_2gr3i5u", templateParams)
+    .then(response => {
+      // Redirect to your submission page
+     window.location.href = "submitted.html"; // or the correct path if in a folder
+
+    })
+    .catch(error => {
+      alert("Oops... something went wrong. " + JSON.stringify(error));
+    });
 });
+
 
 
 const hamburger = document.querySelector('.hamburger');
