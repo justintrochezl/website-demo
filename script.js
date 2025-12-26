@@ -32,6 +32,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     year: this.year.value,
     make: this.make.value,
     model: this.model.value,
+      vin: this.vin.value, 
     glass: glassChecked || "Not specified",
     message: this.message.value,
   };
@@ -73,4 +74,5 @@ faqItems.forEach(item => {
     item.classList.toggle("active");
   });
 });
+
 
