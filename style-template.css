@@ -105,6 +105,11 @@ body, html {
     backdrop-filter: blur(5px);
     transition: background 0.3s ease, padding 0.3s ease;
 }
+.nav-brand {
+  height: 60px;           /* normal logo height */
+  display: flex;
+  align-items: center;    /* vertical centering */
+}
 
 .navbar.scrolled {
     background: rgba(0,0,0,0.85); /* solid when scrolling */
@@ -118,10 +123,14 @@ body, html {
 }
 
 .logo {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: bold;
+  height: 200px;           /* fills the nav-brand container */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-top: 10px;
 }
+
+
 
 .nav-links {
     list-style: none;
