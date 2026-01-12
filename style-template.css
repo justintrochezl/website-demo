@@ -5,6 +5,18 @@ body, html {
     background-color: #000; /* black */
 }
 
+.navbar-title {
+  position: absolute; /* center it in the navbar */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem; /* adjust as needed */
+  font-weight: bold;
+  color: white; /* match your design */
+  margin: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -828,3 +840,4 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
